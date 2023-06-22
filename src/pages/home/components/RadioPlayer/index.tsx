@@ -1,18 +1,18 @@
 import ReactAudioPlayer from "react-audio-player";
 
 import Image from "next/image";
-import { RadioItem } from "./components/RadioItem";
+import RadioItem  from "./components/RadioItem";
 import SquarePause from "@/shared/assets/icons/square-pause.svg";
 import SquarePlay from "@/shared/assets/icons/square-play.svg";
 import { Container } from "./styles";
-import { useContext, useEffect,  useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Context } from "@/pages";
 
 interface RadioPlayerProps {
   name: string;
 }
 
-export function RadioPlayer({ name }: RadioPlayerProps) {
+export default function RadioPlayer({ name }: RadioPlayerProps) {
   const { urlRadioPlaying } = useContext(Context);
 
   const [audioSource, setAudioSource] = useState(urlRadioPlaying);
@@ -29,7 +29,7 @@ export function RadioPlayer({ name }: RadioPlayerProps) {
   }
 
   useEffect(() => {
-    setIsLoading(false)
+    setIsLoading(false);
   }, []);
 
   return (

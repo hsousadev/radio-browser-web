@@ -11,7 +11,7 @@ interface RadioItemProps {
   info: string;
 }
 
-export function RadioItem({ title, info }: RadioItemProps) {
+export default function RadioItem({ title, info }: RadioItemProps) {
   return (
     <Container>
       <div className="info">

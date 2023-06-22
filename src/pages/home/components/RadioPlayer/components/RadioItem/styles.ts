@@ -34,3 +34,5 @@ export const Container = styled.div`
     gap: 24px;
   }
 `;
+
+export default Container;

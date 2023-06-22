@@ -4,13 +4,13 @@ import Image from "next/image";
 import { Context } from "..";
 
 import { Sidebar } from "@/shared/components/Sidebar";
-import { RadioPlayer } from "./components/RadioPlayer";
+import RadioPlayer from "./components/RadioPlayer";
 
 import Search from "@/shared/assets/icons/search.svg";
 
 import { Container } from "./styles";
 
-export function Home() {
+export default function Home() {
   const { menuActive, setMenuActive, radioNamePlaying } = useContext(Context);
 
   return (

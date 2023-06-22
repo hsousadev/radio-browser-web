@@ -1,6 +1,6 @@
 import Head from "next/head";
-import { Home } from "./home";
 import { Dispatch, SetStateAction, createContext, useState } from "react";
+import Home from "./home";
 
 interface ContextProps {
   urlRadioPlaying: string;
