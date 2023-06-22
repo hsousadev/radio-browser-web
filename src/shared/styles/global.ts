@@ -21,25 +21,7 @@ export const GlobalStyles = createGlobalStyle`
 
     background: var(--SoftDark);
 
-    @media(max-width: 1360px) {
-      padding: 0 64px;
-    }
-
-    @media(max-width: 720px) {
-      padding: 0 32px;
-    }
-
-    @media(max-width: 425px) {
-      padding: 0 16px;
-    }
-
-    @media(max-width: 1380px) {
-      zoom: 80%;
-    }
-
-    @media(max-width: 1232px) {
-      zoom: 100%;
-    }
+    height: 100%;
   }
 
   body {
@@ -48,6 +30,12 @@ export const GlobalStyles = createGlobalStyle`
     background: var(--SoftDark) !important;
     margin: 0;
     overflow-x: hidden;
+
+    height: 100%;
+
+    #__next {
+      height: 100%;
+    }
   }
 
   h1, h2, h3, h4, p, strong {

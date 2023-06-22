@@ -10,4 +10,10 @@ export const Container = styled.button`
 
   background-color: var(--Gray);
   border-radius: 8px;
+
+  h4 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 `;

@@ -16,7 +16,7 @@ export const Container = styled.div`
     align-items: center;
     justify-content: flex-start;
 
-    width: inherit;
+    width: -webkit-fill-available;
     padding: 16px 32px 16px 52px;
     gap: 16px;
 
@@ -26,6 +26,10 @@ export const Container = styled.div`
     h2 {
       color: var(--Black);
       font-weight: bold;
+    }
+
+    audio.react-audio-player {
+      display: none;
     }
   }
 
