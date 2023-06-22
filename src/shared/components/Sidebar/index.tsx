@@ -15,7 +15,7 @@ export function Sidebar() {
   const [data, setData] = useState([]);
 
   async function requestData() {
-    const request = await fetch("http://localhost:3000/radios");
+    const request = await fetch("https://de1.api.radio-browser.info/json/stations/search?limit=10");
     const data = await request.json();
     setData(data);
   }
