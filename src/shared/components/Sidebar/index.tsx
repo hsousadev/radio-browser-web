@@ -92,10 +92,6 @@ export function Sidebar() {
     handleSearch();
   }, [searchChanged]);
 
-  useEffect(() => {
-    console.log("-->", searchingRadio);
-  }, [searchingRadio]);
-
   // Calculate the paginated data based on the current page
   const pageSize = 10;
   const startIndex = (currentPage - 1) * pageSize;

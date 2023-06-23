@@ -66,10 +66,6 @@ export default function Index() {
     setFavoriteRadioList(parsedFavorites);
   }, []);
 
-  useEffect(() => {
-    console.log(urlRadioPlaying);
-  }, [urlRadioPlaying]);
-
   return (
     <Context.Provider
       value={{
