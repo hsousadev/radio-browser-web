@@ -5,7 +5,7 @@ Aplicação web de Rádio de navegador consumindo uma API pública com milhares 
 
 
 ## 🌐 Site Online: 
-[[https://metropolitan-museum-of-art-web.vercel.app/](https://radio-browser-web.vercel.app/)](https://radio-browser-web.vercel.app/)
+https://radio-browser-web.vercel.app/
 
 ## 🚀 Build
 
