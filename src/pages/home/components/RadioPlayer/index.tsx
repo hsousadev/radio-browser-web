@@ -57,7 +57,7 @@ export default function RadioPlayer({ name, favorites }: RadioPlayerProps) {
       </div>
 
       <div className="radio-list">
-        {favorites.map((item: OptionRadioProps, index: number) => (
+        {favorites?.map((item: OptionRadioProps, index: number) => (
           <RadioItem
             key={index}
             name={item.name}
