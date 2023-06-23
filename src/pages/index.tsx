@@ -46,10 +46,12 @@ export const Context = createContext<ContextProps>({
 export default function Index() {
   const [menuActive, setMenuActive] = useState(false);
   const [urlRadioPlaying, setUrlRadioPlaying] = useState(
-    "http://stream.bestfm.sk/128.mp3"
+    "https://playerservices.streamtheworld.com/api/livestream-redirect/RADIO_89FM_ADP.aac?dist=site-89fm"
   );
 
-  const [radioNamePlaying, setRadioNamePlaying] = useState("Best FM");
+  const [radioNamePlaying, setRadioNamePlaying] = useState(
+    "Rádio Rock - 89,1 FM"
+  );
 
   const [favoriteRadioList, setFavoriteRadioList] = useState<
     OptionRadioProps[]
@@ -63,6 +65,10 @@ export default function Index() {
 
     setFavoriteRadioList(parsedFavorites);
   }, []);
+
+  useEffect(() => {
+    console.log(urlRadioPlaying);
+  }, [urlRadioPlaying]);
 
   return (
     <Context.Provider

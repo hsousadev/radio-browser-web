@@ -33,7 +33,7 @@ export function Sidebar() {
       setIsLoading(true);
 
       const request = await fetch(
-        "https://de1.api.radio-browser.info/json/stations/search?limit=10"
+        "https://de1.api.radio-browser.info/json/stations/search?name=brasil&limit=10"
       );
       const data = await request.json();
 
