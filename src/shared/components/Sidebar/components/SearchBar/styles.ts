@@ -14,4 +14,12 @@ export const Container = styled.div`
     width: 160px;
     height: 32px;
   }
+
+  @media (max-width: 768px) {
+    width: 80%;
+
+    input {
+      width: 100%;
+    }
+  }
 `;

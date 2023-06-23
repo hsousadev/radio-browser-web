@@ -35,6 +35,10 @@ export const GlobalStyles = createGlobalStyle<any>`
 
     #__next {
       height: 100%;
+
+      main {
+        height: 100%;
+      }
     }
   }
 

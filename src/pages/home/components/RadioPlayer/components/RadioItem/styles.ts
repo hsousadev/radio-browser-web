@@ -17,6 +17,11 @@ export const Container = styled.div`
 
     gap: 16px;
 
+    .edition-inputs {
+      display: flex;
+      gap: 4px;
+    }
+
     h2 {
       font-weight: bold;
     }
@@ -24,6 +29,15 @@ export const Container = styled.div`
     h2,
     h4 {
       color: var(--Black);
+    }
+
+    input {
+      border: 1px solid var(--Black);
+      color: var(--Black);
+
+      &::placeholder {
+        color: rgba(0, 0, 0, 0.35);
+      }
     }
   }
 

@@ -11,6 +11,8 @@ import Search from "@/shared/assets/icons/search.svg";
 import { Container } from "./styles";
 
 export default function Home() {
+  const { favoriteRadioList } = useContext(Context);
+
   const { menuActive, setMenuActive, radioNamePlaying } = useContext(Context);
 
   return (
@@ -27,7 +29,7 @@ export default function Home() {
           </button>
         </div>
 
-        <RadioPlayer name={radioNamePlaying} />
+        <RadioPlayer name={radioNamePlaying} favorites={favoriteRadioList} />
       </div>
     </Container>
   );

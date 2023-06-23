@@ -1,18 +1,20 @@
 import ReactAudioPlayer from "react-audio-player";
 
 import Image from "next/image";
-import RadioItem  from "./components/RadioItem";
+import RadioItem from "./components/RadioItem";
 import SquarePause from "@/shared/assets/icons/square-pause.svg";
 import SquarePlay from "@/shared/assets/icons/square-play.svg";
 import { Container } from "./styles";
 import { useContext, useEffect, useState } from "react";
 import { Context } from "@/pages";
+import { OptionRadioProps } from "@/shared/types/OptionRadioProps";
 
 interface RadioPlayerProps {
   name: string;
+  favorites: Array<OptionRadioProps>;
 }
 
-export default function RadioPlayer({ name }: RadioPlayerProps) {
+export default function RadioPlayer({ name, favorites }: RadioPlayerProps) {
   const { urlRadioPlaying } = useContext(Context);
 
   const [audioSource, setAudioSource] = useState(urlRadioPlaying);
@@ -55,10 +57,14 @@ export default function RadioPlayer({ name }: RadioPlayerProps) {
       </div>
 
       <div className="radio-list">
-        <RadioItem title="Sertanejo Brasil" info="Brasil, RJ" />
-        <RadioItem title="Sertanejo Brasil" info="Brasil, RJ" />
-        <RadioItem title="Sertanejo Brasil" info="Brasil, RJ" />
-        <RadioItem title="Sertanejo Brasil" info="Brasil, RJ" />
+        {favorites.map((item: OptionRadioProps, index: number) => (
+          <RadioItem
+            key={index}
+            name={item.name}
+            country={item.country}
+            url={item.url}
+          />
+        ))}
       </div>
     </Container>
   );

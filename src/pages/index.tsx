@@ -1,8 +1,18 @@
 import Head from "next/head";
-import { Dispatch, SetStateAction, createContext, useState } from "react";
+import {
+  Dispatch,
+  SetStateAction,
+  createContext,
+  useEffect,
+  useState,
+} from "react";
 import Home from "./home";
+import { OptionRadioProps } from "@/shared/types/OptionRadioProps";
 
 interface ContextProps {
+  favoriteRadioList: Array<OptionRadioProps>;
+  setFavoriteRadioList: Dispatch<SetStateAction<Array<OptionRadioProps>>>;
+
   urlRadioPlaying: string;
   setUrlRadioPlaying: Dispatch<SetStateAction<string>>;
 
@@ -11,9 +21,15 @@ interface ContextProps {
 
   menuActive: boolean;
   setMenuActive: Dispatch<SetStateAction<boolean>>;
+
+  searchingRadio: string;
+  setSearchingRadio: Dispatch<SetStateAction<string>>;
 }
 
 export const Context = createContext<ContextProps>({
+  favoriteRadioList: [],
+  setFavoriteRadioList: () => {},
+
   menuActive: false,
   setMenuActive: () => {},
 
@@ -22,17 +38,31 @@ export const Context = createContext<ContextProps>({
 
   urlRadioPlaying: "",
   setUrlRadioPlaying: () => {},
+
+  searchingRadio: "",
+  setSearchingRadio: () => {},
 });
 
 export default function Index() {
   const [menuActive, setMenuActive] = useState(false);
   const [urlRadioPlaying, setUrlRadioPlaying] = useState(
-    "https://stream3.xdevel.com/audio6s975355-281/stream/icecast.audio"
+    "http://stream.bestfm.sk/128.mp3"
   );
 
-  const [radioNamePlaying, setRadioNamePlaying] = useState(
-    "Radio Bruno Pentasport Fiorentina"
-  );
+  const [radioNamePlaying, setRadioNamePlaying] = useState("Best FM");
+
+  const [favoriteRadioList, setFavoriteRadioList] = useState<
+    OptionRadioProps[]
+  >([]);
+
+  const [searchingRadio, setSearchingRadio] = useState("");
+
+  useEffect(() => {
+    const storedFavorites = localStorage.getItem("favoriteRadioList");
+    const parsedFavorites = storedFavorites ? JSON.parse(storedFavorites) : [];
+
+    setFavoriteRadioList(parsedFavorites);
+  }, []);
 
   return (
     <Context.Provider
@@ -43,6 +73,10 @@ export default function Index() {
         setUrlRadioPlaying,
         radioNamePlaying,
         setRadioNamePlaying,
+        favoriteRadioList,
+        setFavoriteRadioList,
+        searchingRadio,
+        setSearchingRadio,
       }}
     >
       <Head>
@@ -51,7 +85,7 @@ export default function Index() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main style={{ height: "100%" }}>
+      <main>
         <Home />
       </main>
     </Context.Provider>
